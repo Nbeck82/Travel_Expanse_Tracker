@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>My Travel Expanse Tracker</title>
+</head>
+<body>
+    <div id="menu-el">
+        <button id="addnew">Add new Expenses</button>
+    </div>
+    <div class="hidden" id="input-container">
+    <label for="expense-input-el">Expenses</label>
+   <br>
+    <label for="euro">EUR</label>
+    <input id="euro" type="radio" name="currency" value="euro">
+    <label for="yen">JPY</label>
+    <input id="yen" type="radio" name="currency" value="yen">
+    <label for="usd">USD</label>
+    <input id="usd" type="radio" name="currency" value="usd">
+    <br>
+  <input id="expense-input-el" type="number"/>
+  <label for="expense-date">Date</label>
+  <input id="expense-date" type="date"/>
+  <label for="expense-cat">Expense Category</label>
+  <select id="expense-cat" name="expense-catagory">
+    <option value="transport">Transportation</option>
+    <option value="hotel">Accomendation</option>
+    <option value="hospitality">Hospitality</option>
+  </select>
+  <label for="paymentmethod">Payment Method</label>
+  <select id="paymentmethod">
+    <option value="companycard">Company Card</option>
+    <option value="ownexp">Own expenditure</option>
+  </select>
+  </div>
+
+
+
+  <script src="script.js"></script>
+    
+</body>
+
+</html>

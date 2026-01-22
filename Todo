@@ -1,0 +1,48 @@
+✔ Summarize project shortly @done(25-12-13 09:45)
+    - App to allow input of travel expenses for a specific date and will store the information to keep track on expenses for specific types over a certain time frame
+☐ Define key functions and features @started(25-12-13 09:45)
+    - Input of expenses in three different currencies (USD, JPY, EUR)
+    - Add date when the expense was done
+    - Add category (Train, Hotel, etc.)
+    - Add label company card or self expense
+    - Add for each item if a daily allowance applies (3000 JPY for half day and 6000 for overnight)
+    - Have an overview of all expenses in a specific month 
+    - mark Items as "billed" and put them in archive
+    - Showing a sub-total of expenses for each months
+    - App should work on web / desktop and phone 
+    - Create PDF of weekly/monthly items for print
+☐ Define necessary tools and stack
+    ☐ Frontend: 
+        - Vanilla HTML/CSS/JS
+        - Responsive UI (CSS Grid/Flex, Mobile-first)
+        - PWA (?)
+        - manifest.json (?)
+        - Service Worker (Workbox?)
+        - IndexedDB (besser als localStorage)
+        - localForage
+    ☐ Build/Dev Tools
+        - Vite 
+        - ESLite + Prettier
+        - Datum/Zeitzone: Luxon
+☐ Future features
+    - Possibility to print one months expense items in a specific form to print and hand over to accounting
+
+// 
+
+☐ Project-Skeleton (Html + CSS + Scripts)
+    ☐ index.html
+    ☐ styles.css
+    ☐ app.js (wiring + events)
+    ☐ storage.js (load/save)
+    ☐ domain.js (totals, validation, format)
+    ☐ ui.js (render table, render totals)
+
+☐ Storage.js: loadState() / saveState(state)
+☐ State-Shape: { months: { [monthId]: MonthRecord }, activeMonthId }
+☐ UI-Render: Month-list + Table render
+☐ Add-Expense: Button -> state push -> save -> render
+☐ Delete Expense: Button -> remove -> save -> render
+☐ Edit Expense: "Edit" Save replace item
+☐ Totals: Total + per category calculate and show
+☐ Sort by date
+☐ PDF/Print @media print + "Print" button (window.print())
