@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
-    <title>My super Great Travel Expanse Tracker</title>
+    <title>My super Great Travel Expense Tracker</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=delete" />
+
 </head>
 <body>
     <div id="menu-el">
@@ -14,13 +16,13 @@
     <label for="expense-input-el">Expenses</label>
    <br>
     <label for="euro">EUR</label>
-    <input id="euro" type="radio" name="currency" value="euro">
+    <input id="euro" type="radio" name="currency" value="EUR">
     <label for="yen">JPY</label>
-    <input id="yen" type="radio" name="currency" value="yen">
+    <input id="yen" type="radio" name="currency" value="JPY">
     <label for="usd">USD</label>
-    <input id="usd" type="radio" name="currency" value="usd">
+    <input id="usd" type="radio" name="currency" value="USD">
     <br>
-  <input id="expense-input-el" type="number"/>
+  <input id="amount-input-el" type="number"/>
   <label for="expense-date">Date</label>
   <input id="expense-date" type="date"/>
   <label for="expense-cat">Expense Category</label>
@@ -34,7 +36,23 @@
     <option value="companycard">Company Card</option>
     <option value="ownexp">Own expenditure</option>
   </select>
+  <button id="submit">Submit Expenses</button>
   </div>
+  <section id="expense_dash">
+    <table>
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Category</th>
+        <th>Amount</th>
+        <th>Currency</th>
+        <th>Payment Method</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+   <tbody id="expense_view"></tbody>
+  </table>
+  </section>
 
 
 

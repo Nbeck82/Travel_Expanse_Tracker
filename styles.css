@@ -2,3 +2,14 @@
     display: none;
     
 }
+
+#expense_dash {
+    margin-top: 20px;
+}
+
+.icon-btn {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+}
