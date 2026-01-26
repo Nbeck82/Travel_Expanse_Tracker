@@ -13,3 +13,19 @@
     cursor: pointer;
     padding: 4px;
 }
+.input-btn {
+    background-color: rgb(59, 125, 103);
+    border: 0px;
+    border-radius: 10px;
+    padding: 10px 10px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #ffff;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.input-btn .material-symbols-outlined {
+    line-height: 1;
+}

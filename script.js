@@ -5,15 +5,21 @@ const expenseDate = document.querySelector("#expense-date")
 const expenseCat = document.querySelector("#expense-cat")
 const submitBtn = document.querySelector("#submit")
 const payMeth = document.querySelector("#paymentmethod")
+const totalOutput = document.getElementById("total-output")
 
 
 
-// Format Date
+// Format Date Helper Function
 function formatDateDMY(isoDate) {
     // isoDate: "Year-Month-Day"
     if (!isoDate) return;
     const [y, m, d] = isoDate.split("-");
     return `${d}/${m}/${y}`;
+}
+
+// Format Amount + JPY Helper Function
+function formatJPY(amount) {
+    return `¥ ${Number(amount).toLocaleString("jp-JP")}`;
 }
 
 
@@ -50,9 +56,7 @@ function saveState() {
 }
 
 let expenseView = document.querySelector("#expense_view");
-if (!expenseView) {
-   
-}
+if (!expenseView) console.log("#expense_view not found");
 
 expenseView.addEventListener("click", function(e) {
     const btn = e.target.closest(".delete-btn"); // target to the closest with the css class selector to avoid that the span will be clicked instead of the btn
@@ -70,17 +74,21 @@ expenseView.addEventListener("click", function(e) {
 loadState();
 render();
 
+
 // Render Data in Table
 function render() {
     if (!expenseView) return;
    
     let rows = "";
 
-    for (const expense of state.expenses) {
+    const items = [...state.expenses]; // making copy of state.expenses Array
+    items.sort((a, b) => b.date.localeCompare(a.date)); // sorting to newest first
+
+    for (const expense of items) {
         rows += `<tr>
                     <td>${formatDateDMY(expense.date)}</td>
                     <td>${expense.category}</td>
-                    <td>${expense.amount}</td>
+                    <td>${formatJPY(expense.amount)}</td>
                     <td>${expense.currency}</td>
                      <td>${expense.payment}</td>
                      <td>
@@ -90,19 +98,16 @@ function render() {
                 </tr>`;
     }
     expenseView.innerHTML = rows;
+    const totals = calcTotals(state.expenses)
+    totalOutput.innerHTML = formatJPY(totals);
+
+
+        
+    
+    
    
 }
  
-expenseView.addEventListener("click", function(e) {
-    const btn = e.target.closest(".delete-btn");
-    if (!btn) return;
-
-    const idToDelete = btn.dataset.id; // will add the info of the id of the element next to the button
-    state.expenses = state.expenses.filter(exp => exp.id !== idToDelete); // creating a new array were the id we deleted will be not included
-
-    saveState();
-    render();
-});
 
 // Submit Handler 
 
@@ -133,7 +138,22 @@ submitBtn.addEventListener("click", function(e) {
     saveState();
     expenseAmount.value = "";
     render();
+    
 
 
 
 })
+
+// calculation of totals
+function calcTotals(expenses) {
+    let total = 0;
+    for ( const expense of expenses) {
+        total += expense.amount
+    }
+    return total
+
+}
+
+
+
+

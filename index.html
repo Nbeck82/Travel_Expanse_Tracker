@@ -5,22 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
     <title>My super Great Travel Expense Tracker</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=delete" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=add_box,delete" />
+   
 
 </head>
 <body>
     <div id="menu-el">
-        <button id="addnew">Add new Expenses</button>
+        <button class="input-btn" id="addnew"><span class="material-symbols-outlined">add_box</span>Add New</button>
+       
     </div>
     <div class="hidden" id="input-container">
-    <label for="expense-input-el">Expenses</label>
+    <label for="expense-input-el">Domestic Expenses</label>
    <br>
-    <label for="euro">EUR</label>
-    <input id="euro" type="radio" name="currency" value="EUR">
+    <!-- <label for="euro">EUR</label>
+    <input id="euro" type="radio" name="currency" value="EUR"> -->
     <label for="yen">JPY</label>
     <input id="yen" type="radio" name="currency" value="JPY">
-    <label for="usd">USD</label>
-    <input id="usd" type="radio" name="currency" value="USD">
+    <!-- <label for="usd">USD</label>
+    <input id="usd" type="radio" name="currency" value="USD"> -->
     <br>
   <input id="amount-input-el" type="number"/>
   <label for="expense-date">Date</label>
@@ -35,6 +37,11 @@
   <select id="paymentmethod">
     <option value="companycard">Company Card</option>
     <option value="ownexp">Own expenditure</option>
+  </select>
+  <label for="allowance">Allowance</label>
+  <select id="allowance">
+    <option value=3000>Half Day</option>
+    <option value=4000>Full Day</option>
   </select>
   <button id="submit">Submit Expenses</button>
   </div>
@@ -53,6 +60,9 @@
    <tbody id="expense_view"></tbody>
   </table>
   </section>
+  <section id="expense_summary">
+    <div id="total"><p>Total Amount for this period:</p><p id="total-output"><p></div>
+  </section>
 
 
 
@@ -61,3 +71,4 @@
 </body>
 
 </html>
+ 
